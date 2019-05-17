@@ -6,7 +6,6 @@
 package com.mycompany.cassiopeia.ejb;
 
 import com.mycompany.cassiopeia.entity.Cancer;
-import java.util.HashMap;
 import javax.persistence.*;
 import java.util.List;
 import javax.ejb.Stateless;
