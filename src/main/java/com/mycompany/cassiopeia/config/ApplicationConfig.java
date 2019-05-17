@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.cassiopeia;
+package com.mycompany.cassiopeia.config;
 
 import java.util.Set;
 import javax.ws.rs.core.Application;
@@ -12,16 +12,15 @@ import javax.ws.rs.core.Application;
  *
  * @author dancan
  */
-@javax.ws.rs.ApplicationPath("webresources")
+@javax.ws.rs.ApplicationPath("api")
 public class ApplicationConfig extends Application {
-
+    
     @Override
     public Set<Class<?>> getClasses() {
         Set<Class<?>> resources = new java.util.HashSet<>();
         addRestResourceClasses(resources);
         return resources;
     }
-
     /**
      * Do not modify addRestResourceClasses() method.
      * It is automatically populated with
@@ -29,7 +28,8 @@ public class ApplicationConfig extends Application {
      * If required, comment out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
-        resources.add(com.mycompany.cassiopeia.CancerResource.class);
+        resources.add(com.mycompany.cassiopeia.resource.CancerResource.class);
+        resources.add(com.mycompany.cassiopeia.resource.SymptomResource.class);
     }
     
 }

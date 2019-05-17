@@ -1,0 +1,30 @@
+<div class="jumbotron">
+    <div class="container text-center">
+        <h2>{{title}}</h2>      
+        <p>Cancer is the name given to a collection of related diseases. In all types of 
+            cancer, some of the body’s cells begin to divide without stopping and spread 
+            into surrounding tissues.
+        </p>
+    </div>   
+</div>
+<div class="container">
+    <h2>List of Cancers </h2>
+    <table class="table table-bordered">
+        <thread>
+            <tr>
+                <th>ID</th>
+                <th>Cancer Name</th>
+                <th>Lethal Degree</th>
+                <th>Treatment Type</th>
+            </tr>
+        </thread>
+        <tbody>
+            <tr ng-repeat="x in cancerData">
+                <td>{{ x.id}}</td>
+                <td>{{ x.cancerName}}</td>
+                <td>{{ x.lethalDegree}}</td>
+                <td>{{ x.treatmentType}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

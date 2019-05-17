@@ -7,18 +7,19 @@ and open the template in the editor.
     Created on : Nov 30, 2018, 12:02:34 AM
     Author     : dancan
 */
-body{
-    background-color: black; 
-    color: green
-}
+
 h1{
-    color: pink; 
+    color: green; 
 }
 h2{
-    color: powderblue;
+    color: green;
 }
 p{
   font-family: courier;
   font-size: 160%;
+}
+footer{
+    font-family: courier;
+    color:green
 }
 

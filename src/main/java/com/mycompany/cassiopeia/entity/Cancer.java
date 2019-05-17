@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.cassiopeia;
+package com.mycompany.cassiopeia.entity;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,17 +16,19 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
  * @author dancan
  */
 @Entity
-@Table(name = "cancer")
+@Table(name = "cancer", catalog = "cancerdb", schema = "")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Cancer.findAll", query = "SELECT c FROM Cancer c")
@@ -38,23 +42,25 @@ public class Cancer implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id")
+    @Column(name = "id", nullable = false)
     private Integer id;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
-    @Column(name = "cancerName")
+    @Column(name = "cancerName", nullable = false, length = 255)
     private String cancerName;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
-    @Column(name = "LethalDegree")
+    @Column(name = "LethalDegree", nullable = false, length = 50)
     private String lethalDegree;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
-    @Column(name = "TreatmentType")
+    @Column(name = "TreatmentType", nullable = false, length = 50)
     private String treatmentType;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
+    private List<Symptom> symptomList;
 
     public Cancer() {
     }
@@ -102,6 +108,15 @@ public class Cancer implements Serializable {
         this.treatmentType = treatmentType;
     }
 
+    @XmlTransient
+    public List<Symptom> getSymptomList() {
+        return symptomList;
+    }
+
+    public void setSymptomList(List<Symptom> symptomList) {
+        this.symptomList = symptomList;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -124,7 +139,7 @@ public class Cancer implements Serializable {
 
     @Override
     public String toString() {
-        return "com.mycompany.cassiopeia.Cancer[ id=" + id + " ]";
+        return "com.mycompany.cassiopeia.entity.Cancer[ id=" + id + " ]";
     }
     
 }

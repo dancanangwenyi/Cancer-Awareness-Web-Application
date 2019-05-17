@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="col-sm-12">
+        <h2>{{title}}</h2>
+    </div>
+    <form ng-submit="submit()">
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="CancerName">Cancer Name:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="CancerName" placeholder="Enter a cancer name" ng-model ="CancerName" name="CancerName">  
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="LethalDegree">Lethal Degree:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="LethalDegree" placeholder="Enter the Lethal Degree" ng-model ="LethalDegree" name="LethalDegree">  
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="TreatmentType">Treatment Type:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="TreatmentType" placeholder="Enter the treatment type" ng-model="TreatmentType" name="TreatmentType">  
+            </div>
+        </div>
+        <div class="col-sm-12" style="padding-bottom: 40px">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="reset" class="btn btn-primary">Reset</button>
+        </div>
+    </form>
+    <div class="container" >
+        <p>{{message}}</p>
+    </div>
+
+<!--<div class="container" >
+    <h2>Different types of cancer table</h2>
+    <table class="table table-bordered">
+        <thread>
+            <tr>
+                <th>ID</th>
+                <th>Cancer Name</th>
+                <th>Lethal Degree</th>
+                <th>Treatment Type</th>
+            </tr>
+        </thread>
+        <tbody>
+            <tr ng-repeat="x in myData">
+                <td>{{ x.id }}</td>
+                <td>{{ x.cancerName }}</td>
+                <td>{{ x.lethalDegree }}</td>
+                <td>{{ x.treatmentType }}</td>
+            </tr>
+        </tbody>
+    </table>
+ </div>
+</div>-->
